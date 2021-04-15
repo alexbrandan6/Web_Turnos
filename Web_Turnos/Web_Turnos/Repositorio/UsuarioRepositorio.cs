@@ -47,7 +47,7 @@ namespace Web_Turnos.Repositorio
             SqlParametros = datos.Parameters.Add("@Mail", SqlDbType.VarChar, 50);
             SqlParametros.Value = usuario.getMail();
 
-            SqlParametros = datos.Parameters.Add("@Genero", SqlDbType.VarChar, 20);
+            SqlParametros = datos.Parameters.Add("@Genero", SqlDbType.Int);
             SqlParametros.Value = usuario.getGenero();
 
             SqlParametros = datos.Parameters.Add("@FechaNacimiento", SqlDbType.Date);
@@ -76,6 +76,30 @@ namespace Web_Turnos.Repositorio
 
             SqlParametros = datos.Parameters.Add("@Contrasenia", SqlDbType.VarChar, 50);
             SqlParametros.Value = usuario.getContrasenia();
+        }
+        public DataSet UsuarioObtener(Usuario usuario)
+        {
+            try
+            {
+                AccesoDatos acc = new AccesoDatos();
+                SqlCommand datos = new SqlCommand();
+                ArmarParametrosUsuarioObtener(ref datos, usuario);
+                return acc.EjecutarProcedimientoAlmacenado(datos, "SP_Usuario_Obtener");
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        private void ArmarParametrosUsuarioObtener(ref SqlCommand datos, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+
+            SqlParametros = datos.Parameters.Add("@NombreUsuario", SqlDbType.VarChar, 50);
+            SqlParametros.Value = usuario.getNombreUsuario();
+
+            SqlParametros = datos.Parameters.Add("@op", SqlDbType.VarChar, 10);
+            SqlParametros.Value = "USER";
         }
     }
 }

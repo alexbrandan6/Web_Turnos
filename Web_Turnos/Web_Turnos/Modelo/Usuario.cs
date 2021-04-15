@@ -15,7 +15,7 @@ namespace Web_Turnos.Modelo
         private string Nombre;
         private string Telefono;
         private string Mail;
-        private string Genero;
+        private int Genero;
         private DateTime FechaNacimiento;
         private int Perfil;
 
@@ -83,11 +83,11 @@ namespace Web_Turnos.Modelo
         {
             this.Mail = Mail;
         }
-        public string getGenero()
+        public int getGenero()
         {
             return Genero;
         }
-        public void setGenero(string Genero)
+        public void setGenero(int Genero)
         {
             this.Genero = Genero;
         }

@@ -66,7 +66,7 @@ namespace Web_Turnos
             usuario.setNombre(txtNombre.Text);
             usuario.setTelefono(txtTelefono.Text);
             usuario.setMail(txtMail.Text);
-            usuario.setGenero(ddlGenero.SelectedItem.Text);
+            usuario.setGenero(int.Parse(ddlGenero.SelectedValue));
             usuario.setFechaNacimiento(DateTime.Parse(txtFechaNacimiento.Text));
 
             return usuario;
