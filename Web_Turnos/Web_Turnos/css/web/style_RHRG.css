@@ -1,0 +1,169 @@
+body {
+	LINE-HEIGHT: 17px;
+	MARGIN: 0px;
+	font-family: 'Roboto', sans-serif !important;
+	COLOR: #000;
+	FONT-SIZE: 12px;
+	background-image: url(../../img/background.png);
+	background-repeat: repeat;
+	background-color: rgb(236, 236, 236);
+}
+
+.Boton {
+	border-style: none;
+	border-color: inherit;
+	border-width: 0;
+	background-color: #36a0cd;
+	color:White;
+	text-transform:uppercase;
+}
+
+.LinkExportar {
+    color:red;
+}
+
+.Titulo_Pagina {
+	COLOR: #2d2d2d;  font-weight:bold; text-align:center;
+}
+.clearfix:after {
+	LINE-HEIGHT: 0px; 
+	DISPLAY: block; 
+	HEIGHT: 0px; 
+	VISIBILITY: hidden; 
+	CLEAR: both; 
+	FONT-SIZE: 0px
+}
+
+a {
+	color: #3a3c42;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: medium;
+}
+.MasterContainer {
+
+ }
+
+.header {
+	 width: 100%;
+}
+
+.newColor {
+	background: #0080b7 !important;
+	background: -webkit-linear-gradient(-60deg, #4E88DF, #0d6efd) !important;
+	background: -o-linear-gradient(-90deg, #64E88DF, #0d6efd) !important;
+	background: -moz-linear-gradient(-90deg, #4E88DF, #0d6efd) !important;
+	background: linear-gradient(-90deg, #4E88DF, #0d6efd) !important;
+}
+
+.header DIV.logo {
+	margin-left: 70px;
+	margin-right: 0px;
+}
+
+.topmenu{
+	height: 33px;
+}
+
+.topmenu UL {
+	padding-bottom: 0px;
+	list-style-type: none;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px
+}
+
+.topmenu UL LI {
+	margin-left: 20px;
+	float: left;
+}
+
+.topmenu UL LI A {
+	color: #ddd;
+	font-weight:bold;
+	padding-bottom: 0px;
+	line-height: 31px;
+	text-transform: uppercase;
+	width: auto;
+	padding-right: 0px;
+	float: left;
+	padding-top: 0px;
+}
+
+#nav li:hover {
+	border-bottom: 2px solid white;
+}
+
+#nav li:hover a {
+	color: #fff;
+}
+
+.RRHH_VENTANA_CONTENIDO {
+	line-height: 19px;
+	font-weight:bold;
+	background: #aec90b;
+	color: #fff;
+	font-size: 1.2em;
+	padding-top: 0px;
+}
+ 
+.CSS_TBL_LOGIN {
+	  background-color:White;
+	  width: 300px;
+	  border: 1;
+	  padding-bottom: 5px;
+}
+ 
+.TBL_FORMA { 
+	background-color: White; 
+	width: 500px;
+	border-collapse: collapse;
+	border: 4px solid gray;
+	padding: 7;
+	border: 4;
+}
+
+.FORMA_CAMPO {  
+	 font-weight:bold; 
+}
+
+.TBL_RESULTADOO {
+	 text-align:center; 
+}
+.TablaResultRow_1 {
+	background-color: white; 
+}
+.TablaResultRow_2{
+	background-color: #CCFF99; 
+}
+
+.TablsResult {
+	 background-color:#2f99dc;
+	 border-style:Solid;
+	 width:100%;
+	 border-collapse:collapse;
+}
+
+.TablaResultHeader{
+	  font-weight:bold;
+      text-align:left;
+}
+
+.TablaResultCell {
+	text-align:left;
+	padding-right:5px;
+	white-space: nowrap;
+	margin-left:5px;
+}
+
+.TablaResultCell_suma {
+	text-align:left;
+}
+
+.TablaResultTotalCell {
+	font-weight:bold;padding-right:5px;
+}
+
+.TablaResultSoloTotalCell {
+	background-color:white;
+}

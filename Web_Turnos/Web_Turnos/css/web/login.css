@@ -1,0 +1,74 @@
+body {
+    background-image: url(../../img/background.png);
+    background-repeat: repeat;
+    background-color: rgb(236, 236, 236);
+}
+
+#containerLogin {
+    height: 100vh;
+    width: 500px;
+}
+
+.rowLogin {
+    width: 300px;
+    text-align: center;
+    background-color: lightgray !important;
+}
+
+.rowTitle {
+    text-align: center;
+    background-color: #0d6efd !important;
+    color: white;
+    font-weight: bold !important;
+}
+
+.inputLogin {
+    text-align: left;
+    width: 100%;
+}
+
+.rowTop {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.rowBottom {
+    border-radius: 0px 0px 10px 10px;
+}
+
+/* Style Table Estado */
+
+.Solicitado {
+    background-color: #c6ffbf;
+}
+
+    .Solicitado:hover {
+        background-color: #95e88a;
+    }
+
+        .Solicitado:hover > td {
+            color: black;
+        }
+
+.Caducado {
+    background-color: #f9cbcb;
+}
+
+    .Caducado:hover {
+        background-color: #ee9898;
+    }
+
+        .Caducado:hover > td {
+            color: black;
+        }
+
+.Cancelado {
+    background-color: #f9f8cb;
+}
+
+    .Cancelado:hover {
+        background-color: #eceb82;
+    }
+
+        .Cancelado:hover > td {
+            color: black;
+        }
