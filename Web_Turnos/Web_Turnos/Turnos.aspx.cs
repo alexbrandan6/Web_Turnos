@@ -74,7 +74,9 @@ namespace Web_Turnos
                         if (msj == "OK")
                         {
                             LimpiarControles();
-                            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Hecho', 'El turno se actualizó exitosamente', 'success').then(() =>  window.location.href = 'Turnos.aspx');", true);
+                            rptTurnos.DataSource = acc.EjecutarScript("EXEC SP_Turnos_Obtener '" + Session["NombreUsuario"].ToString() + "'");
+                            rptTurnos.DataBind();
+                            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Hecho', 'El turno se actualizó exitosamente', 'success');", true);
                         }
                         else
                         {
@@ -129,7 +131,9 @@ namespace Web_Turnos
                         if (msj == "OK")
                         {
                             LimpiarControles();
-                            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Hecho', 'El turno se cancelo exitosamente', 'success').then(() =>  window.location.href = 'Turnos.aspx');", true);
+                            rptTurnos.DataSource = acc.EjecutarScript("EXEC SP_Turnos_Obtener '" + Session["NombreUsuario"].ToString() + "'");
+                            rptTurnos.DataBind();
+                            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Hecho', 'El turno se cancelo exitosamente', 'success');", true);
                         }
                         else
                         {
