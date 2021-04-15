@@ -11,12 +11,9 @@
     <link rel="stylesheet" href="css/web/login.css">
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/web/funciones.js?v1.2"></script>
-    <script src="js/sweetalert/sweetalert.min.js"></script>
     <script src="js/bootstrap/bootstrap-datepicker.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/sweetalert/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="css/sweetalert/sweetalert.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
     <title>Crear Usuario</title>
 </head>
 <body style="padding-top: 7%;">
@@ -127,7 +124,14 @@
             errores.push('Debe ingresar el mail.');
             $("[id$=txtMail]").css("border-color", "red");
             valida = false;
-        } else $("[id$=txtMail]").css("border-color", "");
+        } else {
+            if (!isValidEmailAddress(txtMail)) {
+                $("[id$=txtMail]").val('');
+                $("[id$=txtMail]").css("border-color", "red");
+                errores.push('Formato de mail incorrecto.');
+                valida = false;
+            } else $("[id$=txtMail]").css("border-color", "");
+        }
 
         if (txtTelefono == "") {
             errores.push('Debe ingresar el teléfono.');

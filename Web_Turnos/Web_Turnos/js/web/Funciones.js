@@ -103,7 +103,7 @@ function editor(a) {
 function showWarning(a) {
     swal({
         title: "Atención",
-        icon: "warning",
+        type: "warning",
         allowOutsideClick: !1,
         text: a,
         confirmButtonText: "Aceptar"
@@ -112,7 +112,7 @@ function showWarning(a) {
 function showError(a) {
     swal({
         title: "Error",
-        icon: "error",
+        type: "error",
         allowOutsideClick: !1,
         text: a,
         confirmButtonText: "Aceptar"
@@ -121,7 +121,7 @@ function showError(a) {
 function showSuccess(a) {
     swal({
         title: "Hecho",
-        icon: "success",
+        type: "success",
         allowOutsideClick: !1,
         text: a,
         confirmButtonText: "Aceptar"
@@ -130,7 +130,7 @@ function showSuccess(a) {
 function showDesLog(a) {
     swal({
         title: "Atención",
-        icon: "warning",
+        type: "warning",
         allowOutsideClick: !1,
         text: a,
         confirmButtonText: "Aceptar",
