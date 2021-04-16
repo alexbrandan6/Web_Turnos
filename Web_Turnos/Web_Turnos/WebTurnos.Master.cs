@@ -20,6 +20,7 @@ namespace Web_Turnos
                 ddlGenero.DataSource = acc.ObtenerTabla("tblGeneros", "SELECT * FROM tblGeneros");
                 ddlGenero.DataBind();
 
+                DesactivarControles(false);
                 CargarDatosUsuario(ObtenerUsuario(Session["NombreUsuario"].ToString()));
 
                 spnNombreUsuario.InnerText = Session["NombreUsuario"].ToString();
@@ -106,6 +107,18 @@ namespace Web_Turnos
             UsuarioRepositorio usuarioRepo = new UsuarioRepositorio();
             usuario.setNombreUsuario(NombreUsuario);
             return ds = usuarioRepo.UsuarioObtener(usuario);
+        }
+        protected void DesactivarControles(bool estado)
+        {
+            foreach(TextBox control in form1.Controls.OfType<TextBox>())
+            {
+                control.Enabled = estado;
+            }
+
+            foreach (DropDownList control in form1.Controls.OfType<DropDownList>())
+            {
+                control.Enabled = estado;
+            }
         }
     }
 }

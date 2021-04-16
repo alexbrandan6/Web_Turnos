@@ -1,4 +1,20 @@
-﻿function nav(a, b) {
+﻿function password_show_hide(a, show, hide) {
+    var x = document.getElementById(a);
+    var show_eye = document.getElementById(show);
+    var hide_eye = document.getElementById(hide);
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+        x.type = "text";
+        show_eye.style.display = "none";
+        hide_eye.style.display = "block";
+    } else {
+        x.type = "password";
+        show_eye.style.display = "block";
+        hide_eye.style.display = "none";
+    }
+}
+
+function nav(a, b) {
     $("#navigator").append(
         "<li><a href=" + a + "><i class='active'></i> " + b + "</a></li>"
     );
