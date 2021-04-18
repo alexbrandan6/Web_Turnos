@@ -64,11 +64,11 @@
                                 <li id="liLog" runat="server">
                                     <a class="nav-link text-uppercase" data-bs-toggle="modal" data-bs-target="#modalLogin">Logearse</a>
                                 </li>
-                                <li class="nav-item" id="liDesLog" runat="server">
-                                    <asp:LinkButton ID="btnSalir" CssClass="nav-link text-uppercase" Text="Salir" runat="server" OnClick="btnSalir_Click"></asp:LinkButton>
-                                </li>
                                 <li>
                                     <span id="spnNombreUsuario" class="nav-link text-uppercase" runat="server" data-bs-toggle="modal" data-bs-target="#modalUsuario" style="cursor: pointer;"></span>
+                                </li>
+                                <li class="nav-item" id="liDesLog" runat="server">
+                                    <asp:LinkButton ID="btnSalir" CssClass="nav-link text-uppercase" Text="Salir" runat="server" OnClick="btnSalir_Click"></asp:LinkButton>
                                 </li>
                             </ul>
                         </asp:Panel>
@@ -111,7 +111,7 @@
 
                             <div class="row pt-2">
                                 <div class="col-12">
-                                    <a href="AltaUsuarios.aspx">Crear cuenta</a>
+                                    <a href="UsuariosAlta.aspx">Crear cuenta</a>
                                 </div>
                             </div>
 
@@ -204,12 +204,12 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="container d-flex flex-column justify-content-center align-items-center">
                                 <div class="row p-2 rowBottom">
                                     <div class="col-12 justify-content-center">
-                                        <asp:Button ID="btnActualizarUsuario" runat="server" CssClass="btn btn-primary" Text="Actualizar" OnClientClick="return ValidateUser()" OnClick="btnLog_Click" />
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <input type="button" id="btnActualizarUsuario" class="btn btn-primary" value="Actualizar usuario" onclick="window.location = 'PerfilModificar.aspx';"/>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>
                             </div>

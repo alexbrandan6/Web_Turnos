@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AltaUsuarios.aspx.cs" Inherits="Web_Turnos.AltaUsuarios" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UsuariosAlta.aspx.cs" Inherits="Web_Turnos.UsuariosAlta" %>
 
 <!DOCTYPE html>
 

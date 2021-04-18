@@ -11,7 +11,7 @@ namespace Web_Turnos
 {
 
 
-    public partial class AltaUsuarios
+    public partial class PerfilModificar
     {
 
         /// <summary>

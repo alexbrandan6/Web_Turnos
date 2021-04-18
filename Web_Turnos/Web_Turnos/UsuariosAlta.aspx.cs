@@ -10,7 +10,7 @@ using Web_Turnos.Repositorio;
 
 namespace Web_Turnos
 {
-    public partial class AltaUsuarios : System.Web.UI.Page
+    public partial class UsuariosAlta : System.Web.UI.Page
     {
         AccesoDatos acc = new AccesoDatos();
         protected void Page_Load(object sender, EventArgs e)

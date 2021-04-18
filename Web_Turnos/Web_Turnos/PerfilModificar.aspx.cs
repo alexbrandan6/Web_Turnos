@@ -10,39 +10,29 @@ using Web_Turnos.Repositorio;
 
 namespace Web_Turnos
 {
-    public partial class WebTurnos : System.Web.UI.MasterPage
+    public partial class PerfilModificar : System.Web.UI.Page
     {
         AccesoDatos acc = new AccesoDatos();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["NombreUsuario"] != null)
+            if(Session["NombreUsuario"] != null)
             {
-                ddlGenero.DataSource = acc.ObtenerTabla("tblGeneros", "SELECT * FROM tblGeneros");
-                ddlGenero.DataBind();
+                if (!IsPostBack)
+                {
+                    ddlGenero.DataSource = acc.ObtenerTabla("tblGeneros", "SELECT * FROM tblGeneros");
+                    ddlGenero.DataBind();
 
-                CargarDatosUsuario(ObtenerUsuario(Session["NombreUsuario"].ToString()));
-                DesactivarControles(false);
-
-                spnNombreUsuario.InnerText = Session["NombreUsuario"].ToString();
-
-                liLog.Visible = false;
-                liDesLog.Visible = true;
+                    CargarDatosUsuario(ObtenerUsuario(Session["NombreUsuario"].ToString()));
+                }
             }
             else
             {
-                liLog.Visible = true;
-                liDesLog.Visible = false;
+                Response.Redirect("Home.aspx");
             }
+
         }
 
-        protected void btnSalir_Click(object sender, EventArgs e)
-        {
-            Session["NombreUsuario"] = null;
-            Session["Perfil"] = null;
-            Response.Redirect("Home.aspx");
-        }
-
-        protected void btnLog_Click(object sender, EventArgs e)
+        protected void btnAceptar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -51,7 +41,7 @@ namespace Web_Turnos
                 UsuarioRepositorio usuarioRepo = new UsuarioRepositorio();
 
                 LlenarDatos(usuario);
-                ds = usuarioRepo.UsuarioLogear(usuario);
+                ds = usuarioRepo.UsuarioActualizar(usuario, Session["NombreUsuario"].ToString());
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -59,8 +49,8 @@ namespace Web_Turnos
 
                     if (msj == "OK")
                     {
-                        GuardarSession(ds);
-                        Response.Redirect("Home.aspx");
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "SweetAlert", "swal('Hecho', 'El usuario se actualizó exitosamente', 'success');", true);
+                        btnCancelar.Text = "Volver";
                     }
                     else
                     {
@@ -69,25 +59,27 @@ namespace Web_Turnos
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "SweetAlert", "swal('Error','No se pudo logear', 'error');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "SweetAlert", "swal('Error','No se pudo actualizar', 'error');", true);
                 }
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "SweetAlert", "swal('Error','" + ex.ToString() + "', 'error');", true);
+                throw;
             }
         }
+
         protected Usuario LlenarDatos(Usuario usuario)
         {
-            usuario.setNombreUsuario(txtUsuario.Text);
-            usuario.setContrasenia(txtContra.Text);
+            usuario.setNombreUsuario(txtNombreUsuario.Text);
+            usuario.setContrasenia(txtContrasenia.Text);
+            usuario.setApellido(txtApellido.Text);
+            usuario.setNombre(txtNombre.Text);
+            usuario.setTelefono(txtTelefono.Text);
+            usuario.setMail(txtMail.Text);
+            usuario.setGenero(int.Parse(ddlGenero.SelectedValue));
+            usuario.setFechaNacimiento(DateTime.Parse(txtFechaNacimiento.Text));
 
             return usuario;
-        }
-        protected void GuardarSession(DataSet ds)
-        {
-            Session["NombreUsuario"] = ds.Tables[0].Rows[0]["NombreUsuario"].ToString();
-            Session["Perfil"] = ds.Tables[0].Rows[0]["Perfil"].ToString();
         }
         protected void CargarDatosUsuario(DataSet ds)
         {
@@ -108,16 +100,21 @@ namespace Web_Turnos
             usuario.setNombreUsuario(NombreUsuario);
             return ds = usuarioRepo.UsuarioObtener(usuario);
         }
-        protected void DesactivarControles(bool estado)
-        {
-            foreach(TextBox control in form1.Controls.OfType<TextBox>())
-            {
-                control.Enabled = estado;
-            }
 
-            foreach (DropDownList control in form1.Controls.OfType<DropDownList>())
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
+        }
+
+        protected void LimpiarControles()
+        {
+            foreach (var control in form1.Controls.OfType<TextBox>())
             {
-                control.Enabled = estado;
+                control.Text = "";
+            }
+            foreach (var control in form1.Controls.OfType<DropDownList>())
+            {
+                control.SelectedIndex = 0;
             }
         }
     }
