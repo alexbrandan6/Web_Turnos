@@ -67,7 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AltaUsuarios.aspx" />
     <Content Include="css\bootstrap\bootstrap-grid.css" />
     <Content Include="css\bootstrap\bootstrap-grid.min.css" />
     <Content Include="css\bootstrap\bootstrap-grid.rtl.css" />
@@ -85,18 +84,16 @@
     <Content Include="css\bootstrap\bootstrap.rtl.css" />
     <Content Include="css\bootstrap\bootstrap.rtl.min.css" />
     <Content Include="css\bootstrap\datepicker.css" />
+    <Content Include="css\font-awesome\css\font-awesome.css" />
+    <Content Include="css\font-awesome\css\font-awesome.min.css" />
+    <Content Include="css\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="css\sweetalert\sweetalert.css" />
     <Content Include="css\web\login.css" />
     <Content Include="css\web\style.css" />
-    <Content Include="css\web\style1.css" />
-    <Content Include="css\web\style2.css" />
-    <Content Include="css\web\style3.css" />
-    <Content Include="css\web\styleNEW.css" />
-    <Content Include="css\web\styleNEW2.css" />
-    <Content Include="css\web\style_RHRG.css" />
     <Content Include="img\icon.png" />
+    <Content Include="Info.aspx" />
+    <Content Include="PerfilModificar.aspx" />
     <Content Include="Turnos.aspx" />
-    <Content Include="Home.aspx" />
     <Content Include="img\background.png" />
     <Content Include="js\bootstrap\bootstrap-datepicker.js" />
     <Content Include="js\bootstrap\locales\bootstrap-datepicker.bg.js" />
@@ -147,31 +144,32 @@
     <Content Include="js\web\Funciones.js" />
     <Content Include="js\web\FuncionesUncompressed.js" />
     <Content Include="Login.aspx" />
+    <Content Include="UsuariosAlta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
-    <Compile Include="AltaUsuarios.aspx.cs">
-      <DependentUpon>AltaUsuarios.aspx</DependentUpon>
+    <Compile Include="FuncionesComunes.cs" />
+    <Compile Include="Info.aspx.cs">
+      <DependentUpon>Info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AltaUsuarios.aspx.designer.cs">
-      <DependentUpon>AltaUsuarios.aspx</DependentUpon>
+    <Compile Include="Info.aspx.designer.cs">
+      <DependentUpon>Info.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FuncionesComunes.cs" />
+    <Compile Include="PerfilModificar.aspx.cs">
+      <DependentUpon>PerfilModificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilModificar.aspx.designer.cs">
+      <DependentUpon>PerfilModificar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Turnos.aspx.cs">
       <DependentUpon>Turnos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Turnos.aspx.designer.cs">
       <DependentUpon>Turnos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -182,6 +180,13 @@
     </Compile>
     <Compile Include="Modelo\Turno.cs" />
     <Compile Include="Repositorio\TurnoRepositorio.cs" />
+    <Compile Include="UsuariosAlta.aspx.cs">
+      <DependentUpon>UsuariosAlta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsuariosAlta.aspx.designer.cs">
+      <DependentUpon>UsuariosAlta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebTurnos.Master.cs">
       <DependentUpon>WebTurnos.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -217,6 +222,39 @@
     <Content Include="js\bootstrap\bootstrap.js.map" />
     <Content Include="js\bootstrap\bootstrap.min.js.map" />
     <Content Include="WebTurnos.Master" />
+    <Content Include="css\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="css\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="css\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="css\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="css\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="css\font-awesome\less\animated.less" />
+    <Content Include="css\font-awesome\less\bordered-pulled.less" />
+    <Content Include="css\font-awesome\less\core.less" />
+    <Content Include="css\font-awesome\less\fixed-width.less" />
+    <Content Include="css\font-awesome\less\font-awesome.less" />
+    <Content Include="css\font-awesome\less\icons.less" />
+    <Content Include="css\font-awesome\less\larger.less" />
+    <Content Include="css\font-awesome\less\list.less" />
+    <Content Include="css\font-awesome\less\mixins.less" />
+    <Content Include="css\font-awesome\less\path.less" />
+    <Content Include="css\font-awesome\less\rotated-flipped.less" />
+    <Content Include="css\font-awesome\less\screen-reader.less" />
+    <Content Include="css\font-awesome\less\stacked.less" />
+    <Content Include="css\font-awesome\less\variables.less" />
+    <Content Include="css\font-awesome\scss\font-awesome.scss" />
+    <Content Include="css\font-awesome\scss\_animated.scss" />
+    <Content Include="css\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="css\font-awesome\scss\_core.scss" />
+    <Content Include="css\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="css\font-awesome\scss\_icons.scss" />
+    <Content Include="css\font-awesome\scss\_larger.scss" />
+    <Content Include="css\font-awesome\scss\_list.scss" />
+    <Content Include="css\font-awesome\scss\_mixins.scss" />
+    <Content Include="css\font-awesome\scss\_path.scss" />
+    <Content Include="css\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="css\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="css\font-awesome\scss\_stacked.scss" />
+    <Content Include="css\font-awesome\scss\_variables.scss" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

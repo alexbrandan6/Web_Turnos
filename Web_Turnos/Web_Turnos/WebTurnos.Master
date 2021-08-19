@@ -5,35 +5,34 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- JQuery 3.5.1 -->
     <script src="js/jquery-3.5.1.min.js"></script>
-    <link href="css/web/style_RHRG.css" type="text/css" rel="stylesheet" />
-    
-    <!-- Script Bootstrap 4.5.2 -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
     <!-- SweetAlert -->
     <script src="js/sweetalert/sweetalert.min.js"></script>
     <link rel="stylesheet" href="css/sweetalert/sweetalert.css">
+
     <!-- Bootstrap 4.5.2 -->
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <script src="js/bootstrap/bootstrap.js"></script>
+    
+
     <!-- Bootstrap DatePicker -->
     <script src="js/bootstrap/bootstrap-datepicker.js"></script>
     <link rel="stylesheet" href="css/bootstrap/datepicker.css">
-    <!-- Style Login -->
-    <link rel="stylesheet" href="css/web/login.css">
-    <!-- jQuery 3.5.1 -->
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <!-- Funciones -->
-    <script src="js/web/funciones.js?v1.3"></script>
 
-    <script src="js/bootstrap/bootstrap-datepicker.js"></script>
-    <script src="js/bootstrap/bootstrap.js"></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="css/web/login.css?v1.1">
+    <link rel="stylesheet" href="css/web/style.css?v1.1">
+
+    <!-- Funciones -->
+    <script src="js/web/funciones.js?v1.4"></script>
+
     <!-- DataTable -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/r-2.2.5/datatables.min.css" />
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/r-2.2.5/datatables.min.js"></script>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <title>Inicio</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -41,40 +40,37 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <div ID="pnlTop" class="newColor">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="Home.aspx">
-                        <img src="img/icon.png" alt="Turnos" style="max-height: 65px" />
-                    </a>
+        <header class="header">
+            <nav class="navbar navbar-expand-lg fixed-top py-3">
+                <div class="container">
+                    <a href="Turnos.aspx" class="navbar-brand text-uppercase font-weight-bold">Turnos</a>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button type="button" data-toggle="collapse" id="collapseHeader" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">
+                        <i class="fa fa-bars"></i>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <asp:Panel ID="pnlMenu" runat="server">
-                            <ul class="navbar-nav" id="nav">
-                                <li>
-                                    <a class="nav-link text-uppercase" href="Home.aspx">Reservar turno</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-uppercase" href="Turnos.aspx">Mis turnos</a>
-                                </li>
-                                <li id="liLog" runat="server">
-                                    <a class="nav-link text-uppercase" data-bs-toggle="modal" data-bs-target="#modalLogin">Logearse</a>
-                                </li>
-                                <li>
-                                    <span id="spnNombreUsuario" class="nav-link text-uppercase" runat="server" data-bs-toggle="modal" data-bs-target="#modalUsuario" style="cursor: pointer;"></span>
-                                </li>
-                                <li class="nav-item" id="liDesLog" runat="server">
-                                    <asp:LinkButton ID="btnSalir" CssClass="nav-link text-uppercase" Text="Salir" runat="server" OnClick="btnSalir_Click"></asp:LinkButton>
-                                </li>
-                            </ul>
-                        </asp:Panel>
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                        <ul class="navbar-nav">
+                            <li>
+                                <a class="nav-link text-uppercase" href="Info.aspx">Info</a>
+                            </li>
+                            <li id="liLog" runat="server">
+                                <a class="nav-link text-uppercase" data-bs-toggle="modal" style="cursor: pointer" data-bs-target="#modalLogin">Logearse</a>
+                            </li>
+                            <li id="liUsuario" runat="server">
+                                <span id="spnNombreUsuario" class="nav-link text-uppercase" runat="server" data-bs-toggle="modal" data-bs-target="#modalUsuario" style="cursor:pointer;"></span>
+                            </li>
+                            <li class="nav-item" id="liDesLog" runat="server">
+                                <asp:LinkButton ID="btnSalir" CssClass="nav-link text-uppercase" Text="Salir" runat="server" style="cursor:pointer;" OnClick="btnSalir_Click"></asp:LinkButton>
+                            </li>
+                        </ul>
                     </div>
-                </nav>
-            </div>
+                </div>
+            </nav>
+        </header>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
         </div>
 
         <div class="modal fade no-border bg-transparent" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -118,7 +114,7 @@
                             <div class="row rowBottom pt-2">
                                 <div class="col-12">
                                     <asp:Button ID="btnLog" runat="server" CssClass="btn btn-primary" Text="Ingresar" OnClientClick="return ValidateLog()" OnClick="btnLog_Click" />
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                                 </div>
                             </div>
                         </div>
@@ -140,33 +136,29 @@
                     <div class="modal-body">
                         <div class="container border-light w-50 rowTop">
                             <div class="row p-2">
-                                <div class="col-6">
+                                <div class="col-md-12 col-lg-6 col-12">
                                     <label class="input-group-text-placeholder" for="txtUser">Apellido</label>
                                     <asp:TextBox ID="txtApellido" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-12 col-lg-6 col-12">
                                     <label class="input-group-text-placeholder" for="txtNombre">Nombre</label>
                                     <asp:TextBox ID="txtNombre" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
                                 </div>
-                            </div>
 
-                            <div class="row p-2">
-                                <div class="col-6">
+                                <div class="col-md-12 col-lg-6 col-12">
                                     <label class="input-group-text-placeholder" for="txtMail">Mail</label>
                                     <asp:TextBox ID="txtMail" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-12 col-lg-6 col-12">
                                     <label class="input-group-text-placeholder" for="txtTelefono">Teléfono</label>
                                     <asp:TextBox ID="txtTelefono" runat="server" CssClass="input-group-text w-100 allownumericwithoutdecimal"></asp:TextBox>
                                 </div>
-                            </div>
 
-                            <div class="row p-2">
-                                <div class="col-6">
+                                <div class="col-md-12 col-lg-6 col-12">
                                     <label class="input-group-text-placeholder" for="ddlGenero">Género</label>
                                     <asp:DropDownList ID="ddlGenero" runat="server" CssClass="form-select w-100" DataTextField="Descripcion" DataValueField="idGenero"></asp:DropDownList>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-12 col-lg-6 col-12">
                                     <label class="input-group-text-placeholder" for="txtTelefono">Fecha de nacimiento</label>
                                     <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="input-group-text w-100 input-datepicker"></asp:TextBox>
                                 </div>
@@ -208,8 +200,8 @@
                             <div class="container d-flex flex-column justify-content-center align-items-center">
                                 <div class="row p-2 rowBottom">
                                     <div class="col-12 justify-content-center">
-                                        <input type="button" id="btnActualizarUsuario" class="btn btn-primary" value="Actualizar usuario" onclick="window.location = 'PerfilModificar.aspx';"/>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        <input type="button" id="btnActualizarUsuario" class="btn btn-primary m-1" value="Actualizar usuario" onclick="window.location = 'PerfilModificar.aspx';"/>
+                                        <button type="button" class="btn btn-danger m-1" data-bs-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>
                             </div>
@@ -218,8 +210,19 @@
                 </div>
             </div>
         </div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
     </form>
+
+    <footer>
+        <div class="copyright">
+            <p>&copy 2021</p>
+        </div>
+        <div class="social">
+            <a href="#" class="support">Contacto</a>
+            <a href="#" class="face">f</a>
+            <a href="#" class="tweet">t</a>
+            <a href="#" class="linked">in</a>
+        </div>
+    </footer>
 </body>
 </html>
 
@@ -228,6 +231,7 @@
     $(document).ready(function () {
         datepicker('txtFechaNacimiento');
         document.getElementById('txtContrasenia').type = 'password';
+        eventListeners();
     });
 
     function ValidateLog() {
@@ -238,23 +242,14 @@
         var txtContra = $("[id$=txtContra]").val();
 
         if (txtUsuario == "") {
-            errores.push('Debe ingresar el Usuario.');
+            $("[id$=txtUsuario]").css("border-color", "red");
             valida = false;
-        }
+        } else $("[id$=txtUsuario]").css("border-color", "");
+
         if (txtContra == "") {
-            errores.push('Debe ingresar la Contraseña.');
+            $("[id$=txtContra]").css("border-color", "red");
             valida = false;
-        }
-
-        if (!valida) {
-            var err = "";
-
-            errores.forEach(function (elem) {
-                err += elem + "\n";
-            });
-
-            showWarning(err);
-        }
+        } else $("[id$=txtContra]").css("border-color", "");
 
         return valida;
     }

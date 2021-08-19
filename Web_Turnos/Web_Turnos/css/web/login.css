@@ -17,7 +17,7 @@ body {
 
 .rowTitle {
     text-align: center;
-    background-color: #0d6efd !important;
+    background: gray;
     color: white;
     font-weight: bold !important;
 }

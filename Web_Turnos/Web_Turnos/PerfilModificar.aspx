@@ -8,81 +8,87 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap/datepicker.css">
     <link rel="stylesheet" href="css/sweetalert/sweetalert.css">
-    <link rel="stylesheet" href="css/web/login.css">
+    <link rel="stylesheet" href="css/web/style.css">
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/web/funciones.js?v1.2"></script>
     <script src="js/bootstrap/bootstrap-datepicker.js"></script>
     <script src="js/sweetalert/sweetalert.min.js"></script>
 
-    <title>Crear Usuario</title>
+    <title>Modificar Usuario</title>
 </head>
-<body style="padding-top: 7%;">
+<body>
     <form id="form1" runat="server">
-        <div class="container border-light w-50 rowTop">
-            <div class="row rowTitle rowTop">
-                <div class="col-12">
-                    <span>Datos personales</span>
-                </div>
-            </div>
+        <div class="container">
+            <div class="text-white">
+                <header class="pt-4">
+                    <h1 class="display-6">Datos personales</h1>
+                </header>
+                <div class="container">
+                    <div class="row">
+                        <div class="row p-2">
+                            <div class="col-lg-6 col-12">
+                                <label class="input-group-text-placeholder" for="txtUser">Apellido</label>
+                                <asp:TextBox ID="txtApellido" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <label class="input-group-text-placeholder" for="txtNombre">Nombre</label>
+                                <asp:TextBox ID="txtNombre" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
+                            </div>
+                        </div>
 
-            <div class="row p-2 bg-white">
-                <div class="col-6">
-                    <label class="input-group-text-placeholder" for="txtUser">Apellido</label>
-                    <asp:TextBox ID="txtApellido" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
-                </div>
-                <div class="col-6">
-                    <label class="input-group-text-placeholder" for="txtNombre">Nombre</label>
-                    <asp:TextBox ID="txtNombre" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
-                </div>
-            </div>
+                        <div class="row p-2">
+                            <div class="col-lg-6 col-12">
+                                <label class="input-group-text-placeholder" for="txtMail">Mail</label>
+                                <asp:TextBox ID="txtMail" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <label class="input-group-text-placeholder" for="txtTelefono">Teléfono</label>
+                                <asp:TextBox ID="txtTelefono" runat="server" CssClass="input-group-text w-100 allownumericwithoutdecimal"></asp:TextBox>
+                            </div>
+                        </div>
 
-            <div class="row p-2 bg-white">
-                <div class="col-6">
-                    <label class="input-group-text-placeholder" for="txtMail">Mail</label>
-                    <asp:TextBox ID="txtMail" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
-                </div>
-                <div class="col-6">
-                    <label class="input-group-text-placeholder" for="txtTelefono">Teléfono</label>
-                    <asp:TextBox ID="txtTelefono" runat="server" CssClass="input-group-text w-100 allownumericwithoutdecimal"></asp:TextBox>
-                </div>
-            </div>
-
-            <div class="row p-2 bg-white">
-                <div class="col-6">
-                    <label class="input-group-text-placeholder" for="ddlGenero">Género</label>
-                    <asp:DropDownList ID="ddlGenero" runat="server"  CssClass="form-select w-100" DataTextField="Descripcion" DataValueField="idGenero"></asp:DropDownList>
-                </div>
-                <div class="col-6">
-                    <label class="input-group-text-placeholder" for="txtTelefono">Fecha de nacimiento</label>
-                    <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="input-group-text w-100 input-datepicker"></asp:TextBox>
+                        <div class="row p-2">
+                            <div class="col-lg-6 col-12">
+                                <label class="input-group-text-placeholder" for="ddlGenero">Género</label>
+                                <asp:DropDownList ID="ddlGenero" runat="server" CssClass="form-select w-100" DataTextField="Descripcion" DataValueField="idGenero"></asp:DropDownList>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <label class="input-group-text-placeholder" for="txtTelefono">Fecha de nacimiento</label>
+                                <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="input-group-text w-100 input-datepicker"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="container bg-white border-light w-50" style="padding-top: 1%;">
-            <div class="row rowTitle rowTop">
-                <div class="col-12">
-                    <span>Datos del usuario</span>
-                </div>
-            </div>
-
-            <div class="row p-2">
-                <div class="col-6">
-                    <label class="input-group-text-placeholder" for="txtNombreUsuario">Nombre de usuario</label>
-                    <asp:TextBox ID="txtNombreUsuario" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
-                </div>
-                <div class="col-6">
-                    <label class="input-group-text-placeholder" for="txtContrasenia">Contraseña</label>
-                    <asp:TextBox ID="txtContrasenia" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
-                </div>
-            </div>
-
-            <div class="container d-flex flex-column justify-content-center align-items-center">
-                <div class="row p-2 rowBottom">
-                    <div class="col-12 justify-content-center">
-                        <asp:Button ID="btnAceptar" Text="Actualizar" runat="server" CssClass="btn btn-success" OnClientClick="return Validate()" OnClick="btnAceptar_Click"/>
-                        <asp:Button ID="btnCancelar" Text="Cancelar" runat="server" CssClass="btn btn-danger" OnClick="btnCancelar_Click" />
+        <div class="container">
+            <div class="text-white">
+                <header class="pt-5">
+                    <h1 class="display-6">Datos del usuario</h1>
+                </header>
+                <div class="container">
+                    <div class="row">
+                        <div class="row p-2">
+                            <div class="col-lg-6 col-12">
+                                <label class="input-group-text-placeholder" for="txtNombreUsuario">Nombre de usuario</label>
+                                <asp:TextBox ID="txtNombreUsuario" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <label class="input-group-text-placeholder" for="txtContrasenia">Contraseña</label>
+                                <asp:TextBox ID="txtContrasenia" runat="server" CssClass="input-group-text w-100"></asp:TextBox>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <div class="row p-2 rowBottom">
+                <div class="col-12 justify-content-center">
+                    <asp:Button ID="btnAceptar" Text="Actualizar" runat="server" CssClass="btn btn-primary" OnClientClick="return Validate()" OnClick="btnAceptar_Click" />
+                    <asp:Button ID="btnCancelar" Text="Cancelar" runat="server" CssClass="btn btn-danger" OnClick="btnCancelar_Click" />
                 </div>
             </div>
         </div>

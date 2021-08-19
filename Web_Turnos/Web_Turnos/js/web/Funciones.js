@@ -377,7 +377,7 @@ async function showReconfirmar(er) {
 }
 
 function tableEs(e) {
-    $(e).DataTable({
+    var table = $(e).DataTable({
         autoWidth: false,
         lengthMenu: [5, 10, 20],
         columnDefs: [
@@ -411,9 +411,13 @@ function tableEs(e) {
             },
             "buttons": {
                 "copy": "Copiar",
-                "colvis": "Visibilidad"
+                "colvis": "Visibilidad",
             }
         }
+    });
+
+    table.on('draw', function () {
+        showEstado('tblTurnos', 4);
     });
 }
 
@@ -466,4 +470,23 @@ function ageVerification(value) {
     } else {
         return true;
     }
+}
+
+function eventListeners() {
+
+    $('[id$=collapseHeader]').on('click', () => {
+
+        if ($('#navbarSupportedContent').attr('class').includes('show')) {
+
+            $('#navbarSupportedContent').collapse('hide')
+
+        } else {
+
+            $('#navbarSupportedContent').collapse('show')
+
+        }
+
+        
+    });
+
 }

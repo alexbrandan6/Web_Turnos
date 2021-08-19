@@ -20,7 +20,10 @@ namespace Web_Turnos
             {
                 try
                 {
-                    if(Session["NombreUsuario"] != null){
+                    ddlDiaReserva.DataSource = acc.EjecutarScript("EXEC SP_Calendario");
+                    ddlDiaReserva.DataBind();
+
+                    if (Session["NombreUsuario"] != null){
                         rptTurnos.DataSource = acc.EjecutarScript("EXEC SP_Turnos_Obtener '" + Session["NombreUsuario"].ToString() + "'");
                         rptTurnos.DataBind();
                     }
@@ -32,11 +35,36 @@ namespace Web_Turnos
 
                         divDatosTurno.Visible = true;
                     }
+                    else
+                    {
+                        divDatosTurno.Visible = false;
+                    }
                 }
                 catch(Exception ex)
                 {
                     throw;
                 }
+            }
+
+        }
+
+        protected void ddlDiaReserva_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlDiaReserva.SelectedValue != "-1")
+                {
+                    String fecha = ddlDiaReserva.SelectedValue.Substring(0, 10);
+                    fecha = fun.FechaAAAAMMDD(fecha);
+
+                    ddlHorarioReserva.Items.Clear();
+                    ddlHorarioReserva.DataSource = acc.EjecutarScript("EXEC SP_Horarios_Obtener '" + fecha + "'");
+                    ddlHorarioReserva.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
@@ -154,6 +182,62 @@ namespace Web_Turnos
             {
                 throw;
             }
+        }
+        protected void btnReservar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Session["NombreUsuario"] != null)
+                {
+                    DataSet ds = new DataSet();
+                    Turno turno = new Turno();
+                    TurnoRepositorio turnoRepo = new TurnoRepositorio();
+
+                    LlenarDatosReserva(turno);
+
+                    ds = turnoRepo.TurnoGuardar(turno);
+
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        string msj = ds.Tables[0].Rows[0]["msj"].ToString();
+
+                        if (msj == "OK")
+                        {
+                            LimpiarControlesReserva();
+                            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Hecho', 'El turno se registro exitosamente', 'success');", true);
+                        }
+                        else
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Error','" + msj + "', 'error');", true);
+                        }
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Error','No se pudo guardar', 'error');", true);
+                    }
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Atención','Debe iniciar sesión para reservar turno', 'warning');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        protected Turno LlenarDatosReserva(Turno turno)
+        {
+            turno.setIdHorario(int.Parse(ddlHorarioReserva.SelectedValue));
+            turno.setUsuario(Session["NombreUsuario"].ToString());
+            turno.setFecha(DateTime.Parse(ddlDiaReserva.SelectedValue.Substring(0, 10).Replace("/", "-")));
+
+            return turno;
+        }
+        protected void LimpiarControlesReserva()
+        {
+            ddlDiaReserva.SelectedValue = "-1";
+            ddlHorario.Items.Clear();
         }
     }
 }

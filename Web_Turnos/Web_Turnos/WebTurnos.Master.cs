@@ -26,11 +26,13 @@ namespace Web_Turnos
                 spnNombreUsuario.InnerText = Session["NombreUsuario"].ToString();
 
                 liLog.Visible = false;
+                liUsuario.Visible = true;
                 liDesLog.Visible = true;
             }
             else
             {
                 liLog.Visible = true;
+                liUsuario.Visible = false;
                 liDesLog.Visible = false;
             }
         }
@@ -39,7 +41,7 @@ namespace Web_Turnos
         {
             Session["NombreUsuario"] = null;
             Session["Perfil"] = null;
-            Response.Redirect("Home.aspx");
+            Response.Redirect("Turnos.aspx");
         }
 
         protected void btnLog_Click(object sender, EventArgs e)
@@ -60,7 +62,7 @@ namespace Web_Turnos
                     if (msj == "OK")
                     {
                         GuardarSession(ds);
-                        Response.Redirect("Home.aspx");
+                        Response.Redirect("Turnos.aspx");
                     }
                     else
                     {

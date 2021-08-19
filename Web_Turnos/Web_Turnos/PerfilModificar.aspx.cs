@@ -103,7 +103,7 @@ namespace Web_Turnos
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Home.aspx");
+            Response.Redirect("Turnos.aspx");
         }
 
         protected void LimpiarControles()
