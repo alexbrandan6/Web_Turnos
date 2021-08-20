@@ -8,7 +8,16 @@
         <div class="text-white">
             <header class="py-5 mt-5">
                 <h1 class="display-4">Turnos</h1>
+
                 <p class="lead">Podrá seleccionar el día con el horario deseado si este se encuentra disponible.</p>
+
+                <div class="container">
+                    <ul class="ks-cboxtags">
+                        <li>
+                            <asp:CheckBox ID="chkNotificarMail" runat="server" Text="Notificarme via correo electrónico." />
+                        </li>
+                    </ul>
+                </div>
             </header>
             <div class="container">
                 <div class="row">

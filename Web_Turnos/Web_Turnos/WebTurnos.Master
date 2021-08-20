@@ -23,7 +23,7 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="css/web/login.css?v1.1">
-    <link rel="stylesheet" href="css/web/style.css?v1.1">
+    <link rel="stylesheet" href="css/web/style.css?v1.2">
 
     <!-- Funciones -->
     <script src="js/web/funciones.js?v1.4"></script>

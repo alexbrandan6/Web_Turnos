@@ -41,6 +41,7 @@ namespace Web_Turnos
         {
             Session["NombreUsuario"] = null;
             Session["Perfil"] = null;
+            Session["Mail"] = null;
             Response.Redirect("Turnos.aspx");
         }
 
@@ -90,6 +91,7 @@ namespace Web_Turnos
         {
             Session["NombreUsuario"] = ds.Tables[0].Rows[0]["NombreUsuario"].ToString();
             Session["Perfil"] = ds.Tables[0].Rows[0]["Perfil"].ToString();
+            Session["Mail"] = ds.Tables[0].Rows[0]["Mail"].ToString();
         }
         protected void CargarDatosUsuario(DataSet ds)
         {

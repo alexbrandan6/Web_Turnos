@@ -203,8 +203,24 @@ namespace Web_Turnos
 
                         if (msj == "OK")
                         {
+
+                            if (chkNotificarMail.Checked)
+                            {
+                                if (fun.EnviarMail(Session["Mail"].ToString(), "Reserva de turno", CrearMensajeMail()))
+                                {
+                                    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Hecho', 'El turno se registro exitosamente. Compruebe su correo electrónico.', 'success');", true);
+                                }
+                                else
+                                {
+                                    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Atención', 'El turno se registro exitosamente. Error al enviar mail.', 'warning');", true);
+                                }
+                            }
+                            else
+                            {
+                                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Hecho', 'El turno se registro exitosamente.', 'success');", true);
+                            }
+
                             LimpiarControlesReserva();
-                            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", "swal('Hecho', 'El turno se registro exitosamente', 'success');", true);
                         }
                         else
                         {
@@ -238,6 +254,13 @@ namespace Web_Turnos
         {
             ddlDiaReserva.SelectedValue = "-1";
             ddlHorario.Items.Clear();
+        }
+        protected string CrearMensajeMail()
+        {
+            string msj = "Su turno fue reservado exitosamente para el día ";
+            msj = msj + ddlDiaReserva.SelectedItem.Text + " con el horario de " + ddlHorarioReserva.SelectedItem.Text + " hs.";
+
+            return msj;
         }
     }
 }
