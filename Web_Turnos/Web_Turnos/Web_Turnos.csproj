@@ -143,7 +143,6 @@
     <Content Include="js\sweetalert\sweetalert.min.js" />
     <Content Include="js\web\Funciones.js" />
     <Content Include="js\web\FuncionesUncompressed.js" />
-    <Content Include="Login.aspx" />
     <Content Include="UsuariosAlta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -170,13 +169,6 @@
     </Compile>
     <Compile Include="Turnos.aspx.designer.cs">
       <DependentUpon>Turnos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Turno.cs" />
     <Compile Include="Repositorio\TurnoRepositorio.cs" />
